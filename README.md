@@ -81,4 +81,3 @@ this와 argurments
 비동기 처리(async/await)
 
 제너레이터
-test
