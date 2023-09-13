@@ -50,6 +50,8 @@ sequenceDiagram
 
 논리연산자와 트리거
 
+this와 argurments
+
 고차함수
 
 클로저와 즉시 실행 함수
@@ -71,6 +73,8 @@ sequenceDiagram
 꼬리물기 최적화
 
 프로미스
+
+프로미스 패턴(all, allSettled, any, race)
 
 클래스
 
