@@ -6,7 +6,50 @@
     <title>todos</title>
 </head>
 <body>
-    
-    todos
+<script>
+var form= getFormCtrl();
+bindFormEvent(form);
+
+function bindFormEvent(f) {
+    var submit= f.submit;
+
+    submit.addEventListener('click', function(evt) {
+        var vl= f.input.value.trim();
+        if(!vl) {
+            alert('미입력');
+            return f.input.focus();
+        }
+
+        _addList(f.list, vl);
+    });
+
+    function _addList(list, vl) {
+        var li= list.appendChild(document.createElement('li'));
+        li.textContent= vl;
+    }
+}
+function getFormCtrl() {
+    var input= document.createElement('input');
+    input.type= 'text';
+    _appendBody(input);
+
+    var submit= document.createElement('button');
+    submit.textContent= '확인';
+    _appendBody(submit);
+
+    var list= document.createElement('ul');
+    _appendBody(list);
+
+    return {
+        input: input,
+        submit: submit,
+        list: list
+    };
+
+    function _appendBody(el) {
+        document.body.appendChild(el);
+    }
+}
+</script>
 </body>
 </html>
