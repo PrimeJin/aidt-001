@@ -128,11 +128,11 @@ class DOMRenderer extends Renderer {
 class CanvasRenderer extends Renderer {
     render() {
         const {khs}= this;
-        const list= this.#getList(khs.getListView());
-        khs.getTasks().forEach((task, i)=> list.fillText(task.title, 20, i*20 + 20));
+        const ctx= this.#getContext(khs.getListView());
+        khs.getTasks().forEach((task, i)=> ctx.fillText(task.title, 20, i*20 + 20));
     }
 
-    #getList(view) {
+    #getContext(view) {
         view.innerHTML= '';
         const canvas= view.appendChild(el('canvas'));
         const {width, height}= canvas;
