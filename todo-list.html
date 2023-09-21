@@ -4,52 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>todos</title>
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <script src="js/todo-list.js"></script>
 </head>
 <body>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div id="khs" class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button">khs</button>
+          </h2>
+          <div class="accordion-collapse collapse">
+            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+          </div>
+        </div>
+
+        <div id="cwj" class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button">cwj</button>
+          </h2>
+          <div class="accordion-collapse collapse">
+            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+          </div>
+        </div>
+
+        <div id="seh" class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button">seh</button>
+          </h2>
+          <div class="accordion-collapse collapse">
+            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+          </div>
+        </div>
+
+        <div id="shj" class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button">shj</button>
+          </h2>
+          <div class="accordion-collapse collapse">
+            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+          </div>
+        </div>
+    </div>
 <script>
-var form= getFormCtrl();
-bindFormEvent(form);
-
-function bindFormEvent(f) {
-    var submit= f.submit;
-
-    submit.addEventListener('click', function(evt) {
-        var vl= f.input.value.trim();
-        if(!vl) {
-            alert('미입력');
-            return f.input.focus();
-        }
-
-        _addList(f.list, vl);
-    });
-
-    function _addList(list, vl) {
-        var li= list.appendChild(document.createElement('li'));
-        li.textContent= vl;
-    }
-}
-function getFormCtrl() {
-    var input= document.createElement('input');
-    input.type= 'text';
-    _appendBody(input);
-
-    var submit= document.createElement('button');
-    submit.textContent= '확인';
-    _appendBody(submit);
-
-    var list= document.createElement('ul');
-    _appendBody(list);
-
-    return {
-        input: input,
-        submit: submit,
-        list: list
-    };
-
-    function _appendBody(el) {
-        document.body.appendChild(el);
-    }
-}
+const app= new App(['khs', 'cwj', 'seh', 'shj']);
+app.addScripts().then(_=> app.build());
 </script>
 </body>
 </html>
